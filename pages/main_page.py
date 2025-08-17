@@ -48,3 +48,6 @@ class MainPage(BasePage):
         basket = self.find_element_with_wait(locators.MainPageLocators.CONSTRUCTOR_DROP)
         drag_and_drop(self.driver, ingredient, basket)
 
+    @allure.step('Ожидание изменения текста')
+    def wait_chainge_text(self, text):
+        self.wait.until(expected_conditions.text_to_be_present_in_element(locators.MainPageLocators.INGREDIENT_COUNTER, text))
